@@ -1,0 +1,3 @@
+[[IgnoredVulns]]
+id = "GHSA-h67p-54hq-rp68"
+reason = "js-yaml@3.x is a transitive dependency of @istanbuljs/load-nyc-config (via babel-plugin-istanbul → jest), which has no release that upgrades to js-yaml@4. It is only used to parse trusted local .nycrc config files and is not reachable from production code."
