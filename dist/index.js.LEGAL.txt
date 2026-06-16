@@ -26,7 +26,7 @@ axios/dist/node/axios.cjs:
   /*! Axios v1.16.0 Copyright (c) 2026 Matt Zabriskie and contributors */
 
 js-yaml/dist/js-yaml.mjs:
-  /*! js-yaml 4.1.1 https://github.com/nodeca/js-yaml @license MIT */
+  /*! js-yaml 4.2.0 https://github.com/nodeca/js-yaml @license MIT */
 
 @octokit/request-error/dist-src/index.js:
   /* v8 ignore else -- @preserve -- Bug with vitest coverage where it sees an else branch that doesn't exist */
