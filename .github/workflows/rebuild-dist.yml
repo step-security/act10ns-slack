@@ -1,0 +1,30 @@
+name: "rebuild-dist"
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - run: npm install
+    - run: npm run build
+    - run: npm run package
+    - name: Check for dist drift
+      run: |
+        if ! git diff --quiet dist/; then
+          echo "::error::dist/ is out of sync with src/. Run 'npm run package' and commit the result."
+          git diff --stat dist/
+          exit 1
+        fi
+
